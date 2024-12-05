@@ -1,6 +1,7 @@
 ## Webiste Live Link Endpoint
 
-https://mern-auth-n8rb.onrender.com
+- `Note`: It may take 10-20 sec to open at first (render platform limitation).
+- https://mern-auth-n8rb.onrender.com
 
 # Project Setup On local
 
