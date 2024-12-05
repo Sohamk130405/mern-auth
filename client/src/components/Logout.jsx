@@ -4,10 +4,9 @@ import { useNavigate } from "react-router-dom";
 
 export const Logout = ({ setUser }) => {
   const token = localStorage.getItem("token");
-  const navigate = useNavigate();
   const handleLogout = () => {
     axios
-      .get(`${import.meta.env.VITE_API_URL}/auth/logout`, {
+      .get(`${import.meta.env.VITE_SERVER_BASE_URL}/auth/logout`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
