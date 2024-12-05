@@ -58,3 +58,8 @@ module.exports.logoutUser = async (req, res, next) => {
   await BlackListToken.create({ token });
   res.status(200).json({ message: "User Logged Out Successfully." });
 };
+
+// Copyright (c) Soham Kolhatkar
+// GitHub: https: //github.com/sohamK130405/mern-auth
+// Created on: 2024-12-05
+// All rights reserved.

@@ -1,0 +1,4 @@
+Copyright (c) Soham Kolhatkar
+GitHub: https://github.com/sohamK130405/mern-auth
+Created on: 2024-12-05
+All rights reserved.
