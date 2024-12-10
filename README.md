@@ -22,7 +22,8 @@
 4. [Admin Credentials](#admin-credentials)
 5. [Features](#features)
 6. [Tech Stack](#tech-stack)
-7. [Developer Information](#developer-information)
+7. [Deployment](#deployment)
+8. [Developer Information](#developer-information)
 
 ---
 
@@ -35,8 +36,6 @@
    git clone https://github.com/Sohamk130405/mern-auth.git
    cd mern-auth
    ```
-
-````
 
 ### Client Setup
 
@@ -89,22 +88,16 @@
 
 #### 1. **`/api/auth/register`**
 
-- **Description**:
-  Registers a new user by creating a user account with the provided information.
-
-- **HTTP Method**:
-  `POST`
-
+- **Description**: Registers a new user by creating a user account with the provided information.
+- **HTTP Method**: `POST`
 - **Request Body**:
-
   ```json
   {
-    "name": "string (min. 3 characters, required) | assuming full name",
+    "name": "string (min. 3 characters, required)",
     "email": "string (valid email, required)",
     "password": "string (min. 6 characters, required)"
   }
   ```
-
 - **Example Response**:
   ```json
   {
@@ -117,21 +110,15 @@
 
 #### 2. **`/api/auth/login`**
 
-- **Description**:
-  Authenticates a user using their email and password, returning a JWT token upon successful login.
-
-- **HTTP Method**:
-  `POST`
-
+- **Description**: Authenticates a user using their email and password, returning a JWT token upon successful login.
+- **HTTP Method**: `POST`
 - **Request Body**:
-
   ```json
   {
     "email": "string (valid email, required)",
     "password": "string (min. 6 characters, required)"
   }
   ```
-
 - **Example Response**:
   ```json
   {
@@ -144,19 +131,12 @@
 
 #### 3. **`/api/auth/profile`**
 
-- **Description**:
-  Retrieves the profile information of the currently authenticated user.
-
-- **HTTP Method**:
-  `GET`
-
-- **Authentication**:
-  Requires a valid JWT token in the `Authorization` header:
-
+- **Description**: Retrieves the profile information of the currently authenticated user.
+- **HTTP Method**: `GET`
+- **Authentication**: Requires a valid JWT token in the `Authorization` header:
   ```http
   Authorization: Bearer <token>
   ```
-
 - **Example Response**:
   ```json
   {
@@ -171,14 +151,9 @@
 
 #### 4. **`/api/auth/logout`**
 
-- **Description**:
-  Logs out the current user and blacklists the token provided in cookies or headers.
-
-- **HTTP Method**:
-  `GET`
-
-- **Authentication**:
-  Requires a valid JWT token in the `Authorization` header or cookie.
+- **Description**: Logs out the current user and blacklists the token provided in cookies or headers.
+- **HTTP Method**: `GET`
+- **Authentication**: Requires a valid JWT token in the `Authorization` header or cookie.
 
 ---
 
@@ -188,13 +163,13 @@
 
 - A personalized dashboard for authenticated users.
 - Displays user information (e.g., name, email).
-- Protected: Only accessible to logged-in users.
+- **Protected**: Only accessible to logged-in users.
 
 ### 2. **Admin Dashboard (`/admin`)**
 
 - A dedicated page for admin users with an attractive UI.
 - Displays random data and visual analytics with charts.
-- Protected: Only accessible to logged-in admin users.
+- **Protected**: Only accessible to logged-in admin users.
 
 ### 3. **Login Page (`/login`)**
 
@@ -257,8 +232,4 @@ Use these credentials to log in as an admin and access the Admin Dashboard.
 
 Feel free to contribute to this project by raising issues or submitting pull requests! 🎉
 
-```
-
-This README file now includes the frontend pages as well as admin credentials for testing.
-```
-
+---
