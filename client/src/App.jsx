@@ -6,6 +6,7 @@ import { ToastContainer } from "react-toastify";
 import Home from "./pages/Home";
 import Register from "./pages/Register";
 import UserProtectWrapper from "./components/UserProtectWrapper";
+import AdminDashboard from "./pages/Admin";
 const App = () => {
   return (
     <div>
@@ -15,6 +16,14 @@ const App = () => {
           element={
             <UserProtectWrapper>
               <Home />
+            </UserProtectWrapper>
+          }
+        />
+        <Route
+          path="/admin"
+          element={
+            <UserProtectWrapper>
+              <AdminDashboard />
             </UserProtectWrapper>
           }
         />
