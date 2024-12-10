@@ -1,116 +1,202 @@
-## Webiste Live Link Endpoint
+# MERN Authentication System
 
-- `Note`: It may take 10-20 sec to open at first (render platform limitation).
-- https://mern-auth-n8rb.onrender.com
+**Live Link**:  
+[**https://mern-auth-n8rb.onrender.com**](https://mern-auth-n8rb.onrender.com)
 
-# Project Setup On local
+> _Note_: The website may take 20 -30 seconds to load initially due to Render platform limitations.
 
-- If you want to setup locally then follow these steps
+---
 
-## cd client
+## Project Setup (Local Development)
 
-1. npm install
-2. create .env file as follows:
+Follow these steps to set up the project locally:
 
-- VITE_SERVER_BASE_URL="http://localhost:3000/api"
+### Client Setup
 
-3. npm run dev
+1. Navigate to the `client` directory:
+   ```bash
+   cd client
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file with the following content:
+   ```env
+   VITE_SERVER_BASE_URL="http://localhost:3000/api"
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-## cd server
+### Server Setup
 
-1. npm install
-2. create .env file as follows:
+1. Navigate to the `server` directory:
+   ```bash
+   cd server
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env` file with the following content:
+   ```env
+   MONGO_URI="enterYourMongoDBConnectionString"
+   JWT_SECRET="enterYourJWTSecretKey"
+   ```
+4. Start the server:
+   ```bash
+   node app.js
+   ```
 
-- MONGO_URI="enterYourURI"
-- JWT_SECRET="enterYourSecret"
+---
 
-3. node app.js
+## Backend API Documentation
 
-# Backend API Documentation
+### Base URL:
 
-## `/api/auth/register` Endpoint
+`http://localhost:3000/api`
 
-### Description
+### Authentication Endpoints
 
-Registers a new user by creating a user account with the provided information.
+#### 1. **`/api/auth/register`**
 
-### HTTP Method
+- **Description**:  
+  Registers a new user by creating a user account with the provided information.
 
-`POST`
+- **HTTP Method**:  
+  `POST`
 
-### Request Body
+- **Request Body**:
 
-The request body should be in JSON format and include the following fields:
+  ```json
+  {
+    "name": "string (min. 3 characters, required)",
+    "email": "string (valid email, required)",
+    "password": "string (min. 6 characters, required)"
+  }
+  ```
 
-- `name` (string, required): User's name (minimum 3 characters).
-- `email` (string, required): User's email address (must be a valid email).
-- `password` (string, required): User's password (minimum 6 characters).
+- **Example Response**:
+  ```json
+  {
+    "message": "User registered successfully",
+    "token": "JWT Token"
+  }
+  ```
 
-### Example Response
+---
 
-- `message` (String): User registered successfully
-- `token` (String): JWT Token
+#### 2. **`/api/auth/login`**
 
-## `/api/auth/login` Endpoint
+- **Description**:  
+  Authenticates a user using their email and password, returning a JWT token upon successful login.
 
-### Description
+- **HTTP Method**:  
+  `POST`
 
-Authenticates a user using their email and password, returning a JWT token upon successful login.
+- **Request Body**:
 
-### HTTP Method
+  ```json
+  {
+    "email": "string (valid email, required)",
+    "password": "string (min. 6 characters, required)"
+  }
+  ```
 
-`POST`
+- **Example Response**:
+  ```json
+  {
+    "message": "User logged in successfully",
+    "token": "JWT Token"
+  }
+  ```
 
-### Request Body
+---
 
-The request body should be in JSON format and include the following fields:
+#### 3. **`/api/auth/profile`**
 
-- `email` (string, required): User's email address (must be a valid email).
-- `password` (string, required): User's password (minimum 6 characters).
+- **Description**:  
+  Retrieves the profile information of the currently authenticated user.
 
-### Example Response
+- **HTTP Method**:  
+  `GET`
 
-- `message`(String): User Logged In Successfully
-- `token` (String): JWT Token
+- **Authentication**:  
+  Requires a valid JWT token in the `Authorization` header:
 
-## `/api/auth/profile` Endpoint
+  ```http
+  Authorization: Bearer <token>
+  ```
 
-### Description
+- **Example Response**:
+  ```json
+  {
+    "user": {
+      "name": "string (min. 3 characters)",
+      "email": "string (valid email)"
+    }
+  }
+  ```
 
-Retrieves the profile information of the currently authenticated user.
+---
 
-### HTTP Method
+#### 4. **`/api/auth/logout`**
 
-`GET`
+- **Description**:  
+  Logs out the current user and blacklists the token provided in cookies or headers.
 
-### Authentication
+- **HTTP Method**:  
+  `GET`
 
-Requires a valid JWT token in the Authorization header:
-`Authorization: Bearer <token>`
+- **Authentication**:  
+  Requires a valid JWT token in the `Authorization` header or cookie.
 
-### Example Response
+---
 
-- `user` (object):
-  - `firstname` (string): User's name (minimum 3 characters).
-  - `email` (string): User's email address (must be a valid email).
+## Features
 
-## `/api/auth/logout` Endpoint
+- **User Authentication**: Secure login and registration using JWT.
+- **Token-Based Authorization**: Protects private routes using token-based middleware.
+- **Profile Management**: Retrieve user details using the `/profile` endpoint.
+- **Token Blacklisting**: Ensures secure logout by invalidating tokens.
 
-### Description
+---
 
-Logout the current user and blacklist the token provided in cookie or headers
+## Tech Stack
 
-### HTTP Method
+- **Frontend**: React.js (with Vite for development)
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB
+- **Authentication**: JWT (JSON Web Tokens)
 
-`GET`
+---
 
-### Authentication
+## Deployment
 
-Requires a valid JWT token in the Authorization header or cookie.
+- **Hosting Platform**: Render
+- **Frontend**: Deployed using Vite
+- **Backend**: Node.js server hosted on Render
 
-# Developer Info
+---
 
-- `Author`: Soham Kolhatkar
-- `Branch`: CSAI
-- `Year`: SY
-- `College`: VIT,Pune
+## Developer Information
+
+- **Author**: Soham Kolhatkar
+- **Branch**: CSAI
+- **Year**: SY
+- **College**: VIT, Pune
+
+---
+
+## Future Enhancements
+
+- **Password Reset**: Add functionality for password recovery via email.
+- **Role-Based Access Control**: Introduce roles (e.g., Admin, User) for advanced features.
+- **Improved UI**: Enhance the frontend with additional features like dark mode and responsive design.
+- **Rate Limiting**: Secure API endpoints by implementing rate limiting.
+
+---
+
+Feel free to contribute to this project by raising issues or submitting pull requests! 🎉
