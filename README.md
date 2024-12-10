@@ -142,7 +142,8 @@
   {
     "user": {
       "name": "string (min. 3 characters)",
-      "email": "string (valid email)"
+      "email": "string (valid email)",
+      "role": "string (enum [ 'user' , 'admin'])"
     }
   }
   ```
