@@ -3,13 +3,37 @@
 **Live Link**:  
 [**https://mern-auth-n8rb.onrender.com**](https://mern-auth-n8rb.onrender.com)
 
-> _Note_: The website may take 20 -30 seconds to load initially due to Render platform limitations.
+> _Note_: The website may take 10-20 seconds to load initially due to Render platform limitations.
+
+---
+
+## Table of Contents
+
+1. [Project Setup (Local Development)](#project-setup-local-development)
+   - [Clone the Repository](#clone-the-repository)
+   - [Client Setup](#client-setup)
+   - [Server Setup](#server-setup)
+2. [Backend API Documentation](#backend-api-documentation)
+   - [`/api/auth/register`](#1-apiauthregister)
+   - [`/api/auth/login`](#2-apiauthlogin)
+   - [`/api/auth/profile`](#3-apiauthprofile)
+   - [`/api/auth/logout`](#4-apiauthlogout)
+3. [Features](#features)
+4. [Tech Stack](#tech-stack)
+5. [Developer Information](#developer-information)
+6. [Future Enhancements](#future-enhancements)
 
 ---
 
 ## Project Setup (Local Development)
 
-Follow these steps to set up the project locally:
+### Clone the Repository
+
+1. Clone this repository to your local system:
+   ```bash
+   git clone https://github.com/your-repository-link.git
+   cd your-repository-name
+   ```
 
 ### Client Setup
 
