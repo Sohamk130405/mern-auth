@@ -1,6 +1,3 @@
-Here’s the updated **README.md** file with the frontend pages and admin credentials included:
-
-````markdown
 # MERN Authentication System
 
 **Live Link**:  
@@ -38,6 +35,7 @@ Here’s the updated **README.md** file with the frontend pages and admin creden
    git clone https://github.com/Sohamk130405/mern-auth.git
    cd mern-auth
    ```
+
 ````
 
 ### Client Setup
@@ -91,10 +89,10 @@ Here’s the updated **README.md** file with the frontend pages and admin creden
 
 #### 1. **`/api/auth/register`**
 
-- **Description**:  
+- **Description**:
   Registers a new user by creating a user account with the provided information.
 
-- **HTTP Method**:  
+- **HTTP Method**:
   `POST`
 
 - **Request Body**:
@@ -119,10 +117,10 @@ Here’s the updated **README.md** file with the frontend pages and admin creden
 
 #### 2. **`/api/auth/login`**
 
-- **Description**:  
+- **Description**:
   Authenticates a user using their email and password, returning a JWT token upon successful login.
 
-- **HTTP Method**:  
+- **HTTP Method**:
   `POST`
 
 - **Request Body**:
@@ -146,13 +144,13 @@ Here’s the updated **README.md** file with the frontend pages and admin creden
 
 #### 3. **`/api/auth/profile`**
 
-- **Description**:  
+- **Description**:
   Retrieves the profile information of the currently authenticated user.
 
-- **HTTP Method**:  
+- **HTTP Method**:
   `GET`
 
-- **Authentication**:  
+- **Authentication**:
   Requires a valid JWT token in the `Authorization` header:
 
   ```http
@@ -173,13 +171,13 @@ Here’s the updated **README.md** file with the frontend pages and admin creden
 
 #### 4. **`/api/auth/logout`**
 
-- **Description**:  
+- **Description**:
   Logs out the current user and blacklists the token provided in cookies or headers.
 
-- **HTTP Method**:  
+- **HTTP Method**:
   `GET`
 
-- **Authentication**:  
+- **Authentication**:
   Requires a valid JWT token in the `Authorization` header or cookie.
 
 ---
@@ -263,3 +261,4 @@ Feel free to contribute to this project by raising issues or submitting pull req
 
 This README file now includes the frontend pages as well as admin credentials for testing.
 ```
+````
