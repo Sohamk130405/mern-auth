@@ -31,8 +31,8 @@
 
 1. Clone this repository to your local system:
    ```bash
-   git clone https://github.com/your-repository-link.git
-   cd your-repository-name
+   git clone https://github.com/Sohamk130405/mern-auth.git
+   cd mern-auth
    ```
 
 ### Client Setup
