@@ -1,3 +1,6 @@
+Here’s the updated **README.md** file with the frontend pages and admin credentials included:
+
+````markdown
 # MERN Authentication System
 
 **Live Link**:  
@@ -18,10 +21,11 @@
    - [`/api/auth/login`](#2-apiauthlogin)
    - [`/api/auth/profile`](#3-apiauthprofile)
    - [`/api/auth/logout`](#4-apiauthlogout)
-3. [Features](#features)
-4. [Tech Stack](#tech-stack)
-5. [Developer Information](#developer-information)
-6. [Future Enhancements](#future-enhancements)
+3. [Frontend Pages](#frontend-pages)
+4. [Admin Credentials](#admin-credentials)
+5. [Features](#features)
+6. [Tech Stack](#tech-stack)
+7. [Developer Information](#developer-information)
 
 ---
 
@@ -34,6 +38,7 @@
    git clone https://github.com/Sohamk130405/mern-auth.git
    cd mern-auth
    ```
+````
 
 ### Client Setup
 
@@ -96,7 +101,7 @@
 
   ```json
   {
-    "name": "string (min. 3 characters, required)",
+    "name": "string (min. 3 characters, required) | assuming full name",
     "email": "string (valid email, required)",
     "password": "string (min. 6 characters, required)"
   }
@@ -179,6 +184,44 @@
 
 ---
 
+## Frontend Pages
+
+### 1. **Home Page (`/`)**
+
+- A personalized dashboard for authenticated users.
+- Displays user information (e.g., name, email).
+- Protected: Only accessible to logged-in users.
+
+### 2. **Admin Dashboard (`/admin`)**
+
+- A dedicated page for admin users with an attractive UI.
+- Displays random data and visual analytics with charts.
+- Protected: Only accessible to logged-in admin users.
+
+### 3. **Login Page (`/login`)**
+
+- Allows users and admin to log in with their credentials.
+- User-friendly design with responsive layout.
+
+### 4. **Register Page (`/register`)**
+
+- Enables new users to sign up for the application.
+- Collects essential details like name, email, and password.
+
+---
+
+## Admin Credentials
+
+For testing the admin functionalities, a pre-registered admin account is provided:
+
+- **Name**: `Admin`
+- **Email**: `admin@mern.com`
+- **Password**: `admin@123`
+
+Use these credentials to log in as an admin and access the Admin Dashboard.
+
+---
+
 ## Features
 
 - **User Authentication**: Secure login and registration using JWT.
@@ -214,13 +257,9 @@
 
 ---
 
-## Future Enhancements
-
-- **Password Reset**: Add functionality for password recovery via email.
-- **Role-Based Access Control**: Introduce roles (e.g., Admin, User) for advanced features.
-- **Improved UI**: Enhance the frontend with additional features like dark mode and responsive design.
-- **Rate Limiting**: Secure API endpoints by implementing rate limiting.
-
----
-
 Feel free to contribute to this project by raising issues or submitting pull requests! 🎉
+
+```
+
+This README file now includes the frontend pages as well as admin credentials for testing.
+```
