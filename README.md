@@ -202,6 +202,8 @@ Use these credentials to log in as an admin and access the Admin Dashboard.
 - **Token-Based Authorization**: Protects private routes using token-based middleware.
 - **Profile Management**: Retrieve user details using the `/profile` endpoint.
 - **Token Blacklisting**: Ensures secure logout by invalidating tokens.
+- **Tour Drivers**: Provide contextual help for your users for navigation on website.
+- **Dashboard**: Visually appealing dashboard for admin.
 
 ---
 
@@ -211,6 +213,8 @@ Use these credentials to log in as an admin and access the Admin Dashboard.
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB
 - **Authentication**: JWT (JSON Web Tokens)
+- **Tour Driver**: Driver.js
+- **Dashboard**: Chart.js
 
 ---
 

@@ -72,6 +72,7 @@ const Register = () => {
                 name="name"
                 id="name"
                 autoComplete="name"
+                placeholder="Enter Fullname"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -91,6 +92,7 @@ const Register = () => {
                 type="email"
                 name="email"
                 id="email"
+                placeholder="Enter Email address"
                 autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -113,6 +115,7 @@ const Register = () => {
                 type="password"
                 name="password"
                 id="password"
+                placeholder="Enter Password"
                 autoComplete="current-password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

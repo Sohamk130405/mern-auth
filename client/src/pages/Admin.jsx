@@ -10,6 +10,8 @@ import {
   LinearScale,
   Legend,
 } from "chart.js";
+import { driver } from "driver.js";
+import "driver.js/dist/driver.css";
 
 ChartJS.register(
   CategoryScale,
@@ -35,6 +37,7 @@ const AdminDashboard = () => {
       navigate("/");
     }
   }, [user, navigate]);
+
   const userData = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
     datasets: [
@@ -57,6 +60,52 @@ const AdminDashboard = () => {
     ],
   };
 
+  // Initialize Driver.js
+  const startTour = () => {
+    const driverInstance = new driver({
+      showProgress: true,
+      steps: [
+        {
+          element: "#total-users",
+          popover: {
+            title: "Total Users",
+            description:
+              "This shows the total number of users on the platform.",
+            side: "bottom",
+          },
+        },
+        {
+          element: "#active-sessions",
+          popover: {
+            title: "Active Sessions",
+            description: "This section displays the number of active sessions.",
+            side: "bottom",
+          },
+        },
+        {
+          element: "#monthly-users-chart",
+          popover: {
+            title: "Monthly New Users",
+            description:
+              "A bar chart representing the new users added monthly.",
+            side: "top",
+          },
+        },
+        {
+          element: "#user-activity-chart",
+          popover: {
+            title: "User Activity",
+            description:
+              "A doughnut chart showing the distribution of user activity.",
+            side: "top",
+          },
+        },
+      ],
+    });
+
+    driverInstance.drive();
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,12 +114,22 @@ const AdminDashboard = () => {
           <Logout setUser={setUser} />
         </div>
 
+        {/* Start Tour Button */}
+        <div className="mb-6">
+          <button
+            onClick={startTour}
+            className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+          >
+            Start Tour
+          </button>
+        </div>
+
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="bg-white rounded-lg shadow p-6">
+          <div id="total-users" className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-semibold text-gray-800">Total Users</h2>
             <p className="mt-2 text-3xl font-bold text-indigo-600">124</p>
           </div>
-          <div className="bg-white rounded-lg shadow p-6">
+          <div id="active-sessions" className="bg-white rounded-lg shadow p-6">
             <h2 className="text-xl font-semibold text-gray-800">
               Active Sessions
             </h2>
@@ -85,7 +144,10 @@ const AdminDashboard = () => {
         </div>
 
         <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <div className="bg-white rounded-lg shadow p-6">
+          <div
+            id="monthly-users-chart"
+            className="bg-white rounded-lg shadow p-6"
+          >
             <h2 className="text-xl font-semibold text-gray-800 mb-4">
               Monthly New Users
             </h2>
@@ -108,7 +170,10 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
+          <div
+            id="user-activity-chart"
+            className="bg-white rounded-lg shadow p-6"
+          >
             <h2 className="text-xl font-semibold text-gray-800 mb-4">
               User Activity
             </h2>

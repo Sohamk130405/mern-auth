@@ -1,4 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
+import { driver } from "driver.js";
+
 import { UserDataContext } from "../context/UserContext";
 import { Link, useNavigate } from "react-router-dom";
 import Logout from "../components/Logout";
@@ -6,12 +8,65 @@ import Logout from "../components/Logout";
 const Home = () => {
   const { user, setUser } = useContext(UserDataContext);
   const navigate = useNavigate();
+  const [driverObj, setDriverObj] = useState(null);
 
   useEffect(() => {
+    // Redirect admin users to the admin page
     if (user?.role === "admin") {
       navigate("/admin");
     }
   }, [user, navigate]);
+
+  useEffect(() => {
+    // Initialize driver.js instance
+    if (user) {
+      const driverInstance = new driver({
+        showProgress: true,
+        steps: [
+          {
+            element: "#welcome-message",
+            popover: {
+              title: "Here is quick tour",
+              description: "Thank you for joining our platform.",
+              side: "top",
+            },
+          },
+          {
+            element: "#user-details",
+            popover: {
+              title: "Your Details",
+              description: "Here you can see your details and can logout.",
+              side: "left",
+            },
+          },
+        ],
+      });
+      setDriverObj(driverInstance);
+    } else {
+      const driverInstance = new driver({
+        showProgress: true,
+        steps: [
+          {
+            element: "#auth-links",
+            popover: {
+              title: "Authentication Links",
+              description:
+                "Click here to log in or register if you're not logged in.",
+              side: "top",
+            },
+          },
+        ],
+      });
+      setDriverObj(driverInstance);
+    }
+    startTour();
+  }, [user]);
+
+  const startTour = () => {
+    if (driverObj) {
+      driverObj.drive();
+    }
+  };
 
   return (
     <div className="bg-white">
@@ -30,14 +85,17 @@ const Home = () => {
         </div>
         <div className="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
           {user ? (
-            <div className="text-center">
-              <h1 className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl">
+            <div id="user-details" className="text-center">
+              <h1
+                id="welcome-message"
+                className="text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl"
+              >
                 Welcome back, {user.name}!
               </h1>
               <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl/8">
                 Email: {user.email}
               </p>
-              <Logout setUser={setUser} />
+              <Logout id="logout-btn" setUser={setUser} />
             </div>
           ) : (
             <div className="text-center">
@@ -48,7 +106,10 @@ const Home = () => {
                 Empower your website with a robust and scalable authentication
                 system built by Soham Kolhatkar.
               </p>
-              <div className="mt-10 flex items-center justify-center gap-x-2">
+              <div
+                id="auth-links"
+                className="mt-10 flex items-center justify-center gap-x-2"
+              >
                 <Link
                   to="/register"
                   className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500"
@@ -61,6 +122,14 @@ const Home = () => {
                 >
                   Login
                 </Link>
+              </div>
+              <div className="mt-10 flex justify-center">
+                <button
+                  onClick={startTour}
+                  className="rounded-md bg-blue-500 px-4 py-2 text-white font-semibold hover:bg-blue-400"
+                >
+                  Demo Tour
+                </button>
               </div>
             </div>
           )}

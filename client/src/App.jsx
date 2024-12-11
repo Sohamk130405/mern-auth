@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Register from "./pages/Register";
 import UserProtectWrapper from "./components/UserProtectWrapper";
 import AdminDashboard from "./pages/Admin";
+import "driver.js/dist/driver.css";
 const App = () => {
   return (
     <div>
