@@ -23,6 +23,7 @@ ChartJS.register(
 
 import { UserDataContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
+import Logout from "../components/Logout";
 
 const AdminDashboard = () => {
   const { user, setUser } = useContext(UserDataContext);
@@ -59,7 +60,10 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] py-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-white mb-6">Admin Dashboard</h1>
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-4xl font-bold text-white ">Admin Dashboard</h1>
+          <Logout />
+        </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           <div className="bg-white rounded-lg shadow p-6">
