@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 
 export const Logout = ({ setUser }) => {
   const token = localStorage.getItem("token");
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const handleLogout = async () => {
     setIsLoading(true); // Set loading to true before the operation
@@ -19,16 +20,17 @@ export const Logout = ({ setUser }) => {
       );
 
       if (response.status === 200) {
+        navigate("/");
         localStorage.removeItem("token"); // Clear token from localStorage
         setUser(null); // Reset user context
         toast.success("User logged out successfully!");
       }
     } catch (error) {
+      console.log("error in logout: ", error);
       toast.error(
         error.response?.data?.message ||
           "Something went wrong. Please try again."
       );
-      // Optionally, show an error toast or alert here
     } finally {
       setIsLoading(false); // Reset loading state
     }
